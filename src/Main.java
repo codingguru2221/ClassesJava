@@ -48,8 +48,11 @@ class Stack {
 
     void printElements() {
         if (top >= 0) {
-            for (int i = 0; i < size; i++) {
-                System.out.print(stack[i] == -1 ? "" : stack[i] + ",");
+            for (int i = 0; i <= top; i++) {
+                System.out.print(stack[i]);
+                if (i != top) {
+                    System.out.print(",");
+                }
             }
             System.out.println();
         }
@@ -59,21 +62,6 @@ class Stack {
 
 public class Main {
     public static void main(String[] args) {
-//        Queue queue = new Queue(5);
-//        queue.print();
-//        Scanner sc = new Scanner(System.in);
-//        for(int i=1;i<=5;i++){
-//            System.out.println("Enter element");
-//            queue.insert(sc.nextInt());
-//            queue.print();
-//        }
-//
-//        for(int i=1;i<=5;i++){
-//
-//            queue.delete();
-//            queue.print();
-//        }
-//        queue.delete();
 
 //      Stack By Me
         Stack stack = new Stack(5);
@@ -94,6 +82,24 @@ public class Main {
             System.out.println("Popped: " + stack.pop());
             stack.printElements();
         }
+
+////      Queue By Me
+//
+//        Queue queue = new Queue(5);
+//        Scanner scan = new Scanner(System.in);
+//
+//        // INSERT
+//        for (int i = 0; i < 5; i++) {
+//            System.out.print("Enter element to insert: ");
+//            queue.insert(scan.nextInt());
+//            queue.print();
+//        }
+//
+//        // DELETE
+//        for (int i = 0; i < 5; i++) {
+//            System.out.println("Deleted: " + queue.delete());
+//            queue.print();
+//        }
 
     }
 }
