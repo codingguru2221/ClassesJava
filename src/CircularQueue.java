@@ -7,7 +7,7 @@ class myQueue {
     private int size;
     private int capacity;
 
-    // constructor
+    // Constructor
     public myQueue(int cap) {
         capacity = cap;
         arr = new int[capacity];
@@ -15,17 +15,17 @@ class myQueue {
         size = 0;
     }
 
-    // isEmpty
+    // Check empty
     public boolean isEmpty() {
         return size == 0;
     }
 
-    // isFull
+    // Check full
     public boolean isFull() {
         return size == capacity;
     }
 
-    // Enqueue
+    // Enqueue single value
     public void enqueue(int data) {
 
         if (isFull()) {
@@ -36,8 +36,26 @@ class myQueue {
         int rear = (front + size) % capacity;
         arr[rear] = data;
         size++;
+    }
 
-        System.out.println(data + " inserted");
+    // ⭐ Enqueue all values at once
+    public void enqueueMultiple(Scanner sc) {
+
+        if (isFull()) {
+            System.out.println("Queue is already FULL");
+            return;
+        }
+
+        int space = capacity - size;
+        System.out.println("Enter " + space + " values:");
+
+        for (int i = 0; i < space; i++) {
+            System.out.print("Value " + (i + 1) + ": ");
+            int val = sc.nextInt();
+            enqueue(val);
+        }
+
+        System.out.println("All values inserted successfully");
     }
 
     // Dequeue
@@ -49,7 +67,7 @@ class myQueue {
         }
 
         int removed = arr[front];
-        arr[front] = 0; // blank show karne ke liye
+        arr[front] = 0; // blank space show
         front = (front + 1) % capacity;
         size--;
 
@@ -67,7 +85,7 @@ class myQueue {
         return arr[front];
     }
 
-    // ⭐ Display Queue (NEW OPERATION)
+    // ⭐ Display full queue array
     public void display() {
 
         System.out.println("\n--- Queue Status ---");
@@ -76,15 +94,23 @@ class myQueue {
         System.out.print("Queue    : [ ");
 
         for (int i = 0; i < capacity; i++) {
-            System.out.print(arr[i] + " ");
+
+            System.out.print(arr[i]);
+
+            // last element ke baad comma nahi lagana
+            if (i != capacity - 1) {
+                System.out.print(", ");
+            }
         }
 
-        System.out.println("]");
+        System.out.println(" ]");
         System.out.println("Front index : " + front);
     }
+
 }
 
 public class CircularQueue {
+
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
@@ -111,8 +137,7 @@ public class CircularQueue {
             switch (choice) {
 
                 case 1:
-                    System.out.print("Enter value to insert: ");
-                    q.enqueue(sc.nextInt());
+                    q.enqueueMultiple(sc);
                     break;
 
                 case 2:
@@ -140,7 +165,7 @@ public class CircularQueue {
                     break;
 
                 case 0:
-                    System.out.println("Exiting...");
+                    System.out.println("Program Ended");
                     break;
 
                 default:
