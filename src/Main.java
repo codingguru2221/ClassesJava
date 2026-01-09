@@ -63,43 +63,43 @@ class Stack {
 public class Main {
     public static void main(String[] args) {
 
-//      Stack By Me
-        Stack stack = new Stack(5);
-        Scanner sc = new Scanner(System.in);
-
-        // PUSH
-        for (int i = 0; i < 5; i++) {
-            System.out.print("Enter element to push: ");
-            stack.push(sc.nextInt());
-            stack.printElements();
-        }
-
-        // PEEK
-        System.out.println("Top element: " + stack.peek());
-
-        // POP
-        for (int i = 0; i < 5; i++) {
-            System.out.println("Popped: " + stack.pop());
-            stack.printElements();
-        }
-
-////      Queue By Me
+////      Stack By Me
+//        Stack stack = new Stack(5);
+//        Scanner sc = new Scanner(System.in);
 //
-//        Queue queue = new Queue(5);
-//        Scanner scan = new Scanner(System.in);
-//
-//        // INSERT
+//        // PUSH
 //        for (int i = 0; i < 5; i++) {
-//            System.out.print("Enter element to insert: ");
-//            queue.insert(scan.nextInt());
-//            queue.print();
+//            System.out.print("Enter element to push: ");
+//            stack.push(sc.nextInt());
+//            stack.printElements();
 //        }
 //
-//        // DELETE
+//        // PEEK
+//        System.out.println("Top element: " + stack.peek());
+//
+//        // POP
 //        for (int i = 0; i < 5; i++) {
-//            System.out.println("Deleted: " + queue.delete());
-//            queue.print();
+//            System.out.println("Popped: " + stack.pop());
+//            stack.printElements();
 //        }
+
+//      Queue By Me
+
+        Queue queue = new Queue(5);
+        Scanner scan = new Scanner(System.in);
+
+        // INSERT
+        for (int i = 0; i < 5; i++) {
+            System.out.print("Enter element to insert: ");
+            queue.insert(scan.nextInt());
+            queue.print();
+        }
+
+        // DELETE
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Deleted: " + queue.delete());
+            queue.print();
+        }
 
     }
 }
